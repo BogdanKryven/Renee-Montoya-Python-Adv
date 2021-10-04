@@ -31,7 +31,6 @@ class ToyotaCamry(Car, Toyota):
     def exampleStatic():
         print("Example Static Static")
 
-
     def bibi(self):
         print("Bi Bi from Toyota")
 
@@ -57,7 +56,10 @@ class ToyotaCamry(Car, Toyota):
         print("Na metalolom")
 
 
-ToyotaCamry.exampleStatic()
+# ToyotaCamry.exampleStatic()
+car = ToyotaCamry("Bohdan", "2.6")
+car.move()
+del car
 
 # car = ToyotaCamry("Vasyl", "3.5")
 # car.get_owner_info()
