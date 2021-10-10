@@ -14,10 +14,10 @@ class Model(ABC):
         pass
 
     @classmethod
-    def get_by_id(cls, id):
+    def get_by_id(cls, id_):
         data = cls.get_file_data(cls.file)
         for el in data:
-            if el['id'] == id:
+            if el['id'] == id_:
                 return el
 
         raise Exception("Not found")
