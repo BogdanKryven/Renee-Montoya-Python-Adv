@@ -10,4 +10,3 @@ class Employee(Model):
         self.email = email
         self.department_type = department_type
         self.department_id = department_id
-

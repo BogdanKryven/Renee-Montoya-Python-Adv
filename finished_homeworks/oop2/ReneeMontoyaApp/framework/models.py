@@ -6,7 +6,8 @@ class Model(ABC):
     file = 'default.json'
 
     def _generate_dict(self):
-        return self.__dict__
+        # return self.__dict__
+        return {select_values: getattr(self, select_values) for select_values in self.__dict__}
 
     def save(self):
         plant_in_dict_format = self._generate_dict()
