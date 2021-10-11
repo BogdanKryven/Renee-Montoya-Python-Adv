@@ -16,6 +16,17 @@ class Menu:
         start.logic()
 
     @staticmethod
+    def choice():
+        print(
+            "Choose a menu item by number: \n" +
+            "1. Add new Plant \n" +
+            "2. Add new Employee \n" +
+            "3. Get plant by id \n" +
+            "4. Get employee by id \n" +
+            "5. Get director id by employee email \n"
+        )
+
+    @staticmethod
     def get_director_id_by_employee_email(input_email):
         file_employees = open("database/employees.json", 'r')
         file_plant = open("database/plants.json", 'r')
@@ -30,17 +41,6 @@ class Menu:
                 for el_plants in data_plants:
                     if el_plants['id'] == id_:
                         return f"Director id: {el_plants['director_id']}\n"
-
-    @staticmethod
-    def choice():
-        print(
-            "Choose a menu item by number: \n" +
-            "1. Add new Plant \n" +
-            "2. Add new Employee \n" +
-            "3. Get plant by id \n" +
-            "4. Get employee by id \n" +
-            "5. Get director id by employee email \n"
-        )
 
     def logic(self):
         if self.menu_flag == 1:

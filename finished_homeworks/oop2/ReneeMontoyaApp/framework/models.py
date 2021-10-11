@@ -1,17 +1,18 @@
-from abc import ABC, abstractmethod
+from abc import ABC
 import json
 
 
 class Model(ABC):
     file = 'default.json'
 
-    @abstractmethod
-    def save(self):
-        pass
-
-    @abstractmethod
     def _generate_dict(self):
-        pass
+        return self.__dict__
+
+    def save(self):
+        plant_in_dict_format = self._generate_dict()
+        plants = self.get_file_data(self.file)
+        plants.append(plant_in_dict_format)
+        self.save_to_file(plants)
 
     @classmethod
     def get_by_id(cls, id_):
