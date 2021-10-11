@@ -4,8 +4,8 @@ from framework.models import Model
 class Plant(Model):
     file = "plants.json"
 
-    def __init__(self, id, location, name, director_id):
-        self.id = id
+    def __init__(self, id_, location, name, director_id):
+        self.id = id_
         self.location = location
         self.name = name
         self.director_id = director_id
@@ -23,3 +23,6 @@ class Plant(Model):
         plants = self.get_file_data(self.file)
         plants.append(plant_in_dict_format)
         self.save_to_file(plants)
+
+
+
