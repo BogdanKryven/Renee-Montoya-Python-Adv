@@ -1,6 +1,5 @@
-from functions import *
 from classes import *
-from fixtures import *
+from functions import *
 
 
 def test_check_sum():
@@ -21,9 +20,9 @@ def test_get_operating_system(mocker):
     assert get_operating_system() == "Windows"
 
 
-def test_request(requests_mock):
-    requests_mock.get(
-        "http://jsonplaceholder.typicode.com/tsodos", text="data", status_code=200
+def test_request(requests_mock1):
+    requests_mock1.get(
+        "https://jsonplaceholder.typicode.com/tsodos", text="data", status_code=200
     )
     classForTest = ClassForTest()
     assert classForTest.send_request().ok

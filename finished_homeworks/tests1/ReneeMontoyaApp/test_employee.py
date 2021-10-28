@@ -14,6 +14,7 @@ class TestEmployee(unittest.TestCase):
 
     @patch('models.Employee.get_file_data')
     def test_get_by_id(self, fileDataMock):
-        fileDataMock.return_value = [{"id": 1, "email": "lubomur.luzhnuy@gmail.com", "name": "Liubomyr Luzhnyi", "department_type": "plant", "department_id": 1}, {"id": 2, "email": "anton@gmail.com", "name": "Anton", "department_type": "plant", "department_id": 2}]
+        fileDataMock.return_value = [{"id": 1, "email": "lubomur.luzhnuy@gmail.com", "name": "Liubomyr Luzhnyi", "department_type": "plant", "department_id": 1},
+                                     {"id": 2, "email": "anton@gmail.com", "name": "Anton", "department_type": "plant", "department_id": 2}]
         self.assertEqual(self.employee.get_by_id(1)['email'], "lubomur.luzhnuy@gmail.com")
         self.assertIn('id', self.employee.get_by_id(1))
