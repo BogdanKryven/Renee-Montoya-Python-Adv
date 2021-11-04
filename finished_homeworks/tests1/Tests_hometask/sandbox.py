@@ -62,16 +62,24 @@ from employee import Employee
 import unittest
 from unittest.mock import patch
 
+# class EmployeeTests(unittest.TestCase):
+#
+#     def setUp(self):
+#         self.empl = Employee('Nikita', 'Krutoholov', 1000)
+#
+#     @patch('employee.requests.get')
+#     def test_monthly_schedule(self, mocked_get):
+#         mocked_get.return_value.ok = True
+#         res = self.empl.monthly_schedule('august')
+#         self.assertIsNotNone(res)
+#         self.assertNotEqual(res, 'Bad Response!')
 
-class EmployeeTests(unittest.TestCase):
 
-    def setUp(self):
-        self.empl = Employee('Nikita', 'Krutoholov', 1000)
+import json
+file_name = "employees.json"
 
-    @patch('employee.requests.get')
-    def test_monthly_schedule(self, mocked_get):
-        mocked_get.return_value.ok = True
-        res = self.empl.monthly_schedule('august')
-        self.assertIsNotNone(res)
-        self.assertNotEqual(res, 'Bad Response!')
-
+# file = open("ReneeMontoyaApp/database/employees.json", 'r')
+file = open("tests1/ReneeMontoyaApp/database" + file_name, 'r')
+data = json.loads(file.read())
+file.close()
+print(data)

@@ -14,10 +14,10 @@ class Model(ABC):
         pass
 
     @classmethod
-    def get_by_id(cls, id):
+    def get_by_id(cls, id_):
         data = cls.get_file_data(cls.file)
         for el in data:
-            if el['id'] == id:
+            if el['id'] == id_:
                 return el
 
         raise Exception("Not found")
@@ -35,7 +35,7 @@ class Model(ABC):
         return data
 
     def save_to_file(self, data):
-        data = json.dumps(data)
+        data = json.dumps(data, indent=4)
         file = open('database/' + self.file, "w")
         file.write(data)
         file.close()

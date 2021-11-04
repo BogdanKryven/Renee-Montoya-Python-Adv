@@ -6,11 +6,14 @@ class Plant(Model):
 
     def __init__(self, id, location, name, director_id):
         try:
-            plant = self.get_by_id(id)
+            # plant = self.get_by_id(id)
             self.id = id
-            self.location = plant['location']
-            self.name = plant['name']
-            self.director_id = plant['director_id']
+            # self.location = plant['location']
+            # self.name = plant['name']
+            # self.director_id = plant['director_id']
+            self.location = location
+            self.name = name
+            self.director_id = director_id
         except Exception:
             self.id = id
             self.location = location
@@ -66,13 +69,10 @@ class Employee(Model):
         if Plant.get_plant_by_director_id(self.id) is not None:
             self.is_director = True
 
-
     def department(self):
         if self.department_type == "plant":
-            return Plant.get_by_id(self.deparment_id)
+            return Plant.get_by_id(self.department_id)
         return None
-
-
 
     def _generate_dict(self):
         return {
