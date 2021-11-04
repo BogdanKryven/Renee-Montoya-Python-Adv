@@ -35,7 +35,7 @@ class Model(ABC):
         return data
 
     def save_to_file(self, data):
-        data = json.dumps(data)
+        data = json.dumps(data, indent=4)
         file = open('database/' + self.file, "w")
         file.write(data)
         file.close()

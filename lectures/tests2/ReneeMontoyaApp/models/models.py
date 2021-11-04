@@ -66,13 +66,10 @@ class Employee(Model):
         if Plant.get_plant_by_director_id(self.id) is not None:
             self.is_director = True
 
-
     def department(self):
         if self.department_type == "plant":
             return Plant.get_by_id(self.deparment_id)
         return None
-
-
 
     def _generate_dict(self):
         return {

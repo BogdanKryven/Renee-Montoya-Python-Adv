@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "location": "Lviv",
+        "name": "blablablaept74",
+        "director_id": 1
+    },
+    {
+        "id": 2,
+        "location": "2",
+        "name": "2",
+        "director_id": 2
+    },
+    {
+        "id": 6,
+        "location": "34",
+        "name": "34",
+        "director_id": 3
+    },
+    {
+        "id": 4,
+        "location": "23",
+        "name": "23",
+        "director_id": 1
+    }
+]
