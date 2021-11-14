@@ -5,6 +5,7 @@ INSERT INTO users (first_name, last_name, email) VALUES ("Liubomyr", "Luzhnyi", 
 
 CREATE TABLE users (id INT NOT NULL AUTO_INCREMENT, first_name CHAR(50) NOT NULL, last_name CHAR(60) NOT NULL, email CHAR(50) NOT NULL, is_admin TINYINT(1) DEFAULT 0, PRIMARY KEY(id));
 
+Add column to table
 ALTER TABLE categories ADD COLUMN is_active TINYINT(1) DEFAULT 1;
 
 CREATE TABLE product_images (id INT NOT NULL AUTO_INCREMENT, file VARCHAR(255), alt CHAR(255), product_id INT NOT NULL, PRIMARY KEY(id), FOREIGN KEY (product_id) REFERENCES products(id));
