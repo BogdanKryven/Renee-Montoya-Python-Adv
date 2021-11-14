@@ -1,0 +1,43 @@
+1) Enter in MySql;
+    sudo mysql -u root -p
+
+2) Create "shop" and "my_items" databases;
+    CREATE DATABASE shop;
+    CREATE DATABASE my_items;
+
+3) Before backup we need to exit from MySql;
+    exit
+
+4) Backup from source data;
+    sudo mysql -u root -p shop < Common_files/shop.sql
+    sudo mysql -u root -p my_items < Common_files/my_items.sql
+
+5) Create additional tables to database "my_items"
+    sudo mysql -u root -p
+    USE my_items;
+    CREATE TABLE phone (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, phone_name VARCHAR(255), company_id INT NOT NULL, user_id INT NOT NULL);
+    CREATE TABLE phone_companies (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(255), PRIMARY KEY(id));
+
+6) Save data to outfile (make back data);
+    SELECT * FROM users WHERE is_developer=1 INTO OUTFILE "/var/lib/mysql-files/text_file.txt";
+
+7) Insert xiaomi, apple, samsung to table "phone_companies";
+    INSERT INTO phone_companies (id, name) VALUES (1, "Xiaomi");
+    INSERT INTO phone_companies (name) VALUES ("Samsung");
+    INSERT INTO phone_companies (name) VALUES ("Apple");
+
+8) Insert 3 phone (with any data) to table "phone";
+    INSERT INTO  phone (phone_name, company_id, user_id) VALUES ("Samsung A50", 2, 1);
+    INSERT INTO  phone (phone_name, company_id, user_id) VALUES ("Apple 13", 3, 2);
+    INSERT INTO  phone (phone_name, company_id, user_id) VALUES ("Xiaomi mi4", 1, 2);
+
+9) Select and save to file phones where company_id = XIAOMI COMPANY ID.
+    SELECT * FROM phone WHERE company_id=1 INTO OUTFILE "/var/lib/mysql-files/text_file1.txt";
+
+10) Send file dump of your database and file with your select and insert.
+    sudo mysqldump my_items > my_items.sql
+    or use
+    sudo mysqldump --column-statistics=0 -u root -p my_items > my_items.sql
+
+11) Select all users which have phones.
+    SELECT * FROM users INNER JOIN phone ON users.id=phone.user_id;

@@ -16,5 +16,11 @@
         "location": "Kharkov",
         "name": "Factory_Kharkov",
         "director_id": 3
+    },
+    {
+        "id": 5,
+        "location": "Dnipro",
+        "name": "Roman",
+        "director_id": 1
     }
 ]
