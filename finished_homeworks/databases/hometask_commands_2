@@ -1,0 +1,17 @@
+1. Insert dump of shop.sql to your local database
+    sudo mysql -u root -p shop < "shop.sql"
+
+2. Modify table products add user_id as foreign key
+    ALTER TABLE products ADD COLUMN users_id INT;
+    ALTER TABLE products ADD FOREIGN KEY (users_id) REFERENCES users(id);
+
+    ALTER TABLE products ADD COLUMN users_id INT NOT NULL, ADD FOREIGN KEY (users_id) REFERENCES users(id);
+    UPDATE products SET users_id = 1 WHERE id = 1;
+
+3. Select users their products, collections and images and write this query to file.
+    select id, title, image, meta_title, is_active from categories;
+    select * from products;
+    select * from categories_products;
+    select * from product_images;
+    select * from users;
+    SELECT u.id, u.first_name, u.last_name, u.email, c.title, p.title, p.price, pi.file FROM users u INNER JOIN products p ON p.users_id = u.id INNER JOIN categories_products cp ON cp.product_id = p.id INNER JOIN product_images pi ON pi.product_id = p.id INNER JOIN categories c ON c.id = cp.category_id INTO OUTFILE '/var/lib/mysql-files/hw8.txt';
