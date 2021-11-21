@@ -1,0 +1,2 @@
+class GetByIdException(Exception):
+    pass

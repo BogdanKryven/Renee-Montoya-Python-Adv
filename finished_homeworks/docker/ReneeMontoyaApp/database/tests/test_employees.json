@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "email": "bohdan1108@gmail.com",
+        "name": "Bohdan",
+        "department_type": "plant",
+        "department_id": 1
+    },
+    {
+        "id": 2,
+        "email": "roman@gmail.com",
+        "name": "Roman",
+        "department_type": "ne_plant",
+        "department_id": 1
+    }
+]
