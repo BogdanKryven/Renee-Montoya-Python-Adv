@@ -1,2 +1,8 @@
 Удалить все неиспользуемые контейнеры
 docker rm $(docker ps -qa)
+
+Создать контейнер с именем, который будет удаляться при завершении работы контейнера
+docker run --rm --name name_container name_image
+
+Создает и включает docker-compose
+docker-compose up --build

@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+  simple-flask-app:
+    build: my-flask-app/
+    container_name: "flask-app-docker-1"
+    volumes:
+      - ./my-flask-app:/app
