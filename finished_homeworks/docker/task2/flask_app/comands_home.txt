@@ -1,0 +1,11 @@
+1. Dump data from mysql database to sql file
+    mysqldump -u root –p shop > shop.sql
+
+2. Build and start "docker-compose"
+    docker-compose up --build
+
+3. In another terminal tab open docker mysql container from docker-compose
+    docker exec -ti mysql-database-docker bash
+
+4. Move my local shop database to docker container with "mysql"
+    mysql -u root -p shop_data < shop.sql

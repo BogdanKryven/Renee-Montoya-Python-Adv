@@ -10,7 +10,8 @@ db = SQLAlchemy(app)
 
 @app.route('/')
 def index():
-    data = json.dumps([{"first_name": "Libomyr"}, {"first_name": "Ivan"}])
+    data = json.dumps([{"first_name": "Lubomir"}, {"first_name": "Ivan"}])
     return data
+
 
 app.run(host='0.0.0.0', port=8080, debug=True)

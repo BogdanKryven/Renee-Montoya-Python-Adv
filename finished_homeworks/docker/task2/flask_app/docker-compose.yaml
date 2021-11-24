@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  app:
+#    build: docker/app
+    build:
+      context: ./
+      dockerfile: docker/app/Dockerfile
+    container_name: "flask-app-docker"
+    volumes:
+      - ./app:/application
+    environment:
+      FLASK_APP: app.py
+    ports:
+      - "8080-8080"
+
+  mysql:
+#    build: docker/database
+    build:
+      context: ./
+      dockerfile: docker/database/Dockerfile
+#    build: my-flask-app/database
+    container_name: "mysql-database-docker"
+    volumes:
+      - mysql_database:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: bohdan
+      MYSQL_PASSWORD: bohdan
+      MYSQL_DATABASE: shop_data
+    ports:
+      - '8090:8090'
+
+volumes:
+  mysql_database:

@@ -6,3 +6,7 @@ docker run --rm --name name_container name_image
 
 Создает и включает docker-compose
 docker-compose up --build
+
+Зайти в работающий контейнер через терминал
+docker exec -ti flask-app-docker-1 bash
+
